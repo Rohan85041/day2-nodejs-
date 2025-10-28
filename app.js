@@ -1,11 +1,35 @@
-const http = require('http'); // Import the http module
-const port = 3000; // Port to listen on
+const express=require("express")
+const app=express();
+const port=3000
+//api
 
-// Create the HTTP server
-const server = http.createServer(function(req, res){
-  res.end('Hello, World!\n');
-});
 
-server.listen(port, () => {
-  console.log(`Server running at ${port}`);
-});
+app.use(express.json())
+app.get('/movies',function(req,res){
+    res.json({
+        name:"bahubali",
+        director:"rajumouli",
+        actor:"prabhas",
+        rating:5
+    })
+})
+
+app.post('/upload',function(req,res){
+    res.json({
+        message:"photo is uploaded succesfully"
+    })
+})
+
+app.post('/users',function(req,res){
+    res.json({
+        message:"registartion succesful"
+    })
+})
+
+app.get('/fact',function(req,res){
+ res.send("cat is an animal")
+})
+
+app.listen(port,function(){
+    console.log(`the server is running on ${port}`)
+})
