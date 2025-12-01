@@ -27,7 +27,9 @@ app.post('/users',function(req,res){
 })
 
 app.get('/fact',function(req,res){
- res.send("cat is an animal")
+ res.json({
+    msg:"cat is an animal"
+ })
 })
 
 app.listen(port,function(){
